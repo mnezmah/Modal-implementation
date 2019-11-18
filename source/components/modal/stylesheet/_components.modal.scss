@@ -5,7 +5,6 @@ $modal-gutter-small: $global-spacing * 2 !default;
 $modal-transition-time: 400ms !default;
 $modal-transition-ease: $ease-in-out-quad !default;
 $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5;
-
 .is--modal-open {
   overflow: hidden;
 
@@ -17,6 +16,18 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
 .is--modal-open.is-touch {
   body {
     position: fixed;
+  }
+}
+
+#modal-email {
+  .modal__container {
+    background-color: $color-off-white;
+    height: auto;
+    width: auto;
+
+    .modal__content {
+      background-color: $color-off-white;
+    }
   }
 }
 
@@ -46,8 +57,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
 
   .modal__content {
     opacity: 1;
-    transition: $modal-transition-time $modal-transition-ease 100ms,
-      $modal-transition-time $modal-transition-ease;
+    transition: $modal-transition-time $modal-transition-ease 100ms, $modal-transition-time $modal-transition-ease;
     transition-property: transform, opacity;
   }
 
@@ -56,6 +66,12 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
     transition: $modal-transition-time $modal-transition-ease, 0ms;
     transition-property: opacity, left;
   }
+}
+
+.modal__buton-round {
+  background-color: $color-black;
+  border-radius: 50%;
+  color: $color-off-white;
 }
 
 .modal__button-close {
@@ -86,8 +102,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
   opacity: 0;
   padding: $modal-gutter;
   background-color: $color-white;
-  transition: $modal-transition-time $modal-transition-ease,
-    $modal-transition-time $modal-transition-ease;
+  transition: $modal-transition-time $modal-transition-ease, $modal-transition-time $modal-transition-ease;
   transition-property: transform, opacity;
 
   @include screen-min-width($modal-min-width-media-query) {
