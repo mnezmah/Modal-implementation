@@ -103,7 +103,7 @@
         console.log('I am clicked')
         modal.classList.toggle('modal--is-showing')
 
-         //pause the video
+        //pause the video
         videoDiv.firstChild.pause()
     }
 
@@ -113,5 +113,8 @@
     function closeModal() {
         console.log('Closing the modal')
         modal.classList.toggle('modal--is-showing')
+
+        //resume the video
+        videoDiv.firstChild.play()
     }
 </script>
