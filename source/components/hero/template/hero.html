@@ -91,3 +91,14 @@
     } ) }}
     </div>
 </div>
+
+<script>
+    const modal = document.querySelector('#modal-example')
+    const openButton = document.querySelector('.hero__cta')
+    //open modal with button 'open modal'
+    openButton.addEventListener('click', openModal)
+    function openModal() {
+        console.log('I am clicked')
+        modal.classList.toggle('modal--is-showing')
+    }
+</script>
