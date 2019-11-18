@@ -95,11 +95,16 @@
 <script>
     const modal = document.querySelector('#modal-example')
     const openButton = document.querySelector('.hero__cta')
+    const videoDiv = document.querySelector('.video__player')
+
     //open modal with button 'open modal'
     openButton.addEventListener('click', openModal)
     function openModal() {
         console.log('I am clicked')
         modal.classList.toggle('modal--is-showing')
+
+         //pause the video
+        videoDiv.firstChild.pause()
     }
 
     //close modal with x button
