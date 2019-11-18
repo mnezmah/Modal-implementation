@@ -101,4 +101,12 @@
         console.log('I am clicked')
         modal.classList.toggle('modal--is-showing')
     }
+
+    //close modal with x button
+    const closeButton = document.querySelector('.modal__button-close')
+    closeButton.addEventListener('click', closeModal)
+    function closeModal() {
+        console.log('Closing the modal')
+        modal.classList.toggle('modal--is-showing')
+    }
 </script>
