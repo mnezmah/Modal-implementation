@@ -1,0 +1,97 @@
+.c-footer {
+  background-color: $color-black;
+  color: $color-white;
+  padding: $global-spacing-lg 0;
+
+  @include screen-mobile-plus-and-bigger {
+    padding: 100px 0;
+  }
+}
+
+.footer__logo {
+  display: none;
+
+  @include screen-tablet-portrait-and-bigger {
+    display: block;
+  }
+
+  svg {
+    width: 125px;
+    height: 46px;
+  }
+}
+
+.footer__left {
+  display: flex;
+
+  @include screen-tablet-portrait-and-bigger {
+    align-items: flex-end;
+  }
+}
+
+.footer__right {
+  display: flex;
+
+  @include screen-tablet-portrait-and-bigger {
+    align-items: flex-end;
+    height: 100%;
+  }
+}
+
+.footer__menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+  @include screen-tablet-portrait-and-bigger {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: $global-spacing-lg;
+  }
+}
+
+.footer__menu-item {
+  color: $color-white;
+  font-weight: $font-weight-bold;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+
+  @include screen-tablet-portrait-and-bigger {
+    font-size: 2rem;
+  }
+
+  ~ .footer__menu-item {
+    margin-top: $global-spacing-xs / 2;
+
+    @include screen-tablet-portrait-and-bigger {
+      margin-left: $global-spacing-sm;
+      margin-top: 0;
+    }
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.footer__socials {
+  margin-top: $global-spacing-sm;
+
+  @include screen-mobile-plus-and-bigger {
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.footer__social-icon {
+  color: $color-white;
+
+  ~ .footer__social-icon {
+    margin-left: $global-spacing;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
