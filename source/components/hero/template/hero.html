@@ -85,19 +85,39 @@
         } ) }} -->
         <h3>Niks willen missen van onze nieuwtjes en acties?</h3>
         <form action="submit">
-            <input type="text" name="email" id="email" placeholder="Emailaddress">
-            <input type="text" name="first" id="first" placeholder="First name">
-            <input type="text" name="last" id="last" placeholder="Last name">
+            <input 
+            type="email"
+            name="email" 
+            id="email" 
+            placeholder="Emailaddress" 
+            onclick=showHiddenForm()
+            onkeypress=showHiddenForm()
+            >
+            <input 
+            type="text" 
+            class="hidden" 
+            name="first" 
+            id="first" 
+            placeholder="First name"
+            >
+            <input 
+            type="text" 
+            class="hidden" 
+            name="last" 
+            id="last" 
+            placeholder="Last name"
+            >
             <br>
+
             {{ button( {
-                class: 'modal__button-back',icon: 'chevron-left'
+                class: 'modal__button-back hidden',
+                icon: 'chevron-left',
                 label: 'back',
-                variant: 'ghost',
-                
+                variant: 'ghost'
             } ) }}
 
             {{ button( {
-                class: 'modal__button-submit',
+                class: 'modal__button-submit hidden',
                 label: 'submit',
                 variant: 'primary',
                 icon: 'chevron-right'
@@ -132,7 +152,7 @@
 
     //open modal with button 'open modal'
     openButton.addEventListener('click', openModal)
-    function openModal() {
+   function openModal() {
         console.log('I am clicked')
         modal.classList.toggle('modal--is-showing')
 
@@ -158,4 +178,13 @@
         //hide the close button
         closeButton.style.visibility = 'hidden'
     }
+
+    function showHiddenForm(){
+        console.log('emal changed!')
+        document.querySelector('#first').classList.remove('hidden')
+        document.querySelector('#last').classList.remove('hidden')
+        document.querySelector('.modal__button-back').classList.remove('hidden')
+        document.querySelector('.modal__button-submit').classList.remove('hidden')
+    }
+
 </script>
