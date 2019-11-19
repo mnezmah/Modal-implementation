@@ -40,7 +40,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
         flex-direction: row;
       }
       .input__email {
-        :active {
+        :focus {
           border: solid 0.5px $color-social-pinterest;
         }
       }

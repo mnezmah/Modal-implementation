@@ -73,7 +73,8 @@
 
     <div class="o-container">
         {% call modal({
-            id:'modal-subsc'
+            id:'modal-subsc',
+            noClose: false
         }, js-hook-modal) %}
         <h3>Niks willen missen van onze nieuwtjes en acties?</h3>
         {%call form.form() %}
@@ -86,21 +87,24 @@
                 placeholder: 'Emailaddress'
             })}}
 
-       <div class="name-input-container">
+        <div class="name-input-container">
             {{ form.input({
+                    type: 'text',
                     name:'input-first',
                     class: 'input__first hidden',
                     id: 'first',
-                    placeholder: 'First name'
+                    required: true,
+                    error: 'Please provide First name'
                 })}}
-    
+
             {{ form.input({
+                    type: 'text',
                     name:'input-last',
                     class: 'input__last hidden',
                     id: 'last',
                     placeholder: 'Last name'
                 })}}
-       </div>
+        </div>
 
         {% endcall %}
         <!-- /form -->
@@ -116,19 +120,20 @@
                 class: 'modal__button-submit hidden',
                 label: 'submit',
                 variant: 'primary',
-                icon: 'chevron-right'
+                icon: 'chevron-right',
+                url: '#'
             } ) }}
 
         </form>
 
         {% endcall %}
 
-        <div class="hero__content">
+        <!-- <div class="hero__content">
 
             <h1 class="hero__title u-margin-bottom--sm">We are going to create: <br />A modal with a newsletter form!!
             </h1>
             <p class="hero__subtitle">Let's get started!</p>
-        </div>
+        </div> -->
 
         {{ button( {
       class: 'hero__cta',
@@ -148,6 +153,8 @@
     const videoDiv = document.querySelector('.video__player')
     const closeButton = document.querySelector('.modal__button-close')
     const emailInput = document.querySelector('#email')
+    const firstNameInput = document.querySelector('.input__first')
+    const lastNameInput = document.querySelector('.input__last')
 
     //open modal with button 'open modal'
     openButton.addEventListener('click', openModal)
@@ -171,7 +178,7 @@
 
     //close modal with x button
     closeButton.addEventListener('click', closeModal)
-    closeButton.addEventListener('keyPress', closeModal)
+    closeButton.addEventListener('keypress', closeModal)
     function closeModal() {
         console.log('Closing the modal')
         modal.classList.toggle('modal--is-showing')
@@ -186,10 +193,45 @@
     emailInput.addEventListener('click', showHiddenForm)
     function showHiddenForm() {
         console.log('email clicked!')
-        document.querySelector('.input__first').classList.remove('hidden')
-        document.querySelector('.input__last').classList.remove('hidden')
+        firstNameInput.classList.remove('hidden')
+        lastNameInput.classList.remove('hidden')
         document.querySelector('.modal__button-back').classList.remove('hidden')
         document.querySelector('.modal__button-submit').classList.remove('hidden')
     }
 
+    //Form validation
+    const submitButton = document.querySelector('.modal__button-submit')
+
+    submitButton.addEventListener('click', validate)
+    function validate() {
+        firstInput = document.querySelector('#first')
+        lastInput = document.querySelector('#last')
+    if (emailInput.value == "") {
+        alert("Please provide your Email!")
+        emailInput.focus()
+        return false
+    } if (firstInput.value == "") {
+        alert("Please provide your First name!")
+        firstInput.focus()
+        return false
+    } if (lastInput.value == "") {
+        alert("Please provide your Last name!")
+        lastInput.focus()
+        return false
+    }
+    validateEmail()
+    }
+
+    function validateEmail() {
+        const emailValue = emailInput.value
+        atPosition = emailValue.indexOf("@")
+        dotPosition = emailValue.lastIndexOf(".")
+
+        if (atPosition < 1 || (dotPosition - atPosition < 2) || dotPosition == emailValue.length-1 ) {
+            alert("Please enter a valid e-mail address")
+            emailInput.focus()
+            return false
+        }
+        return true
+    }
 </script>
