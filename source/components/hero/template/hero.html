@@ -91,19 +91,21 @@
                 placeholder: 'Emailaddress'
             })}}
 
-        {{ form.input({
-                name:'input-first',
-                class: 'input__first hidden',
-                id: 'first',
-                placeholder: 'First name'
-            })}}
-
-        {{ form.input({
-                name:'input-last',
-                class: 'input__last hidden',
-                id: 'last',
-                placeholder: 'Last name'
-            })}}
+       <div class="name-input-container">
+            {{ form.input({
+                    name:'input-first',
+                    class: 'input__first hidden',
+                    id: 'first',
+                    placeholder: 'First name'
+                })}}
+    
+            {{ form.input({
+                    name:'input-last',
+                    class: 'input__last hidden',
+                    id: 'last',
+                    placeholder: 'Last name'
+                })}}
+       </div>
 
         {% endcall %}
         <!-- /form -->

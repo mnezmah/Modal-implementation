@@ -5,6 +5,7 @@ $modal-gutter-small: $global-spacing * 2 !default;
 $modal-transition-time: 400ms !default;
 $modal-transition-ease: $ease-in-out-quad !default;
 $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5;
+
 .is--modal-open {
   overflow: hidden;
 
@@ -24,23 +25,21 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
     background-color: $color-off-white;
     height: auto;
     width: 42%;
+    overflow: unset;
 
     .modal__content {
       background-color: $color-off-white;
 
       h3 {
         margin-bottom: $global-spacing-sm;
+        grid-area: title;
       }
 
-      input {
-        // padding: 1%;
-        // margin-bottom: $global-spacing-sm;
+      .name-input-container {
+        display: flex;
+        flex-direction: row;
       }
-
       .input__email {
-        width: 100%;
-        // border: solid 1px $color-black;
-
         :active {
           border: solid 0.5px $color-social-pinterest;
         }
@@ -48,16 +47,19 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
 
       .input__first {
         border: solid 0.5px $color-social-whatsapp;
-        // margin-right: $global-spacing-sm;
+        width: 45%;
+        margin-right: $global-spacing-lg;
       }
 
       .input__last {
         clear: right;
+        width: 45%;
         border: solid 0.5px $color-social-whatsapp;
       }
 
       .modal__button-back {
         clear: left;
+
         .button__icon {
           right: $button-spacing * 9;
         }
