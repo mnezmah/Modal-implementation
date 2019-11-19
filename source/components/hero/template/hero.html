@@ -3,16 +3,9 @@
 {% from 'modal.html' import modal %}
 
 
-{% call modal({
-            id:'modal-email'
-        }) %}
 
-<h3>Niks willen missen van onze nieuwtjes en acties?</h3>
-<form action="submit">
-    <input type="text" name="email" id="email" placeholder="Emailaddress">
-</form>
 
-{% endcall %}
+
 
 <div class="c-hero">
     {{ video({
@@ -82,7 +75,38 @@
   }) }}
 
     <div class="o-container">
+        {% call modal({
+                    id:'modal-email',
+                    noClose: 'true'
+                }) %}
+        {{ button( {
+                      class: 'modal__button-close modal__button-round',
+                      label: 'x',
+                      variant: 'secondary'
+                    } ) }}
+        <h3>Niks willen missen van onze nieuwtjes en acties?</h3>
+        <form action="submit">
+            <input type="text" name="email" id="email" placeholder="Emailaddress">
+            <input type="text" name="first" id="first" placeholder="First name">
+            <input type="text" name="last" id="last" placeholder="Last name">
+            <br>
+            {{ button( {
+                class: 'modal__button-back',
+                label: 'back',
+                variant: 'ghost'
+            } ) }}
+
+            {{ button( {
+                class: 'modal__button-submit',
+                label: 'submit',
+                variant: 'primary'
+            } ) }}
+
+        </form>
+
+        {% endcall %}
         <div class="hero__content">
+
             <h1 class="hero__title u-margin-bottom--sm">We are going to create: <br />A modal with a newsletter form!!
             </h1>
             <p class="hero__subtitle">Let's get started!</p>
@@ -102,6 +126,7 @@
     const modal = document.querySelector('#modal-email')
     const openButton = document.querySelector('.hero__cta')
     const videoDiv = document.querySelector('.video__player')
+    const closeButton = document.querySelector('.modal__button-close')
 
     //open modal with button 'open modal'
     openButton.addEventListener('click', openModal)
@@ -112,11 +137,14 @@
         //pause the video
         videoDiv.firstChild.pause()
 
-        // .modal__buton - round
+        //show the close button
+        closeButton.style.visibility = 'visible'
+
+        //style the close button
+        closeButton.classList.add('modal__button-round')
     }
 
     //close modal with x button
-    const closeButton = document.querySelector('.modal__button-close')
     closeButton.addEventListener('click', closeModal)
     function closeModal() {
         console.log('Closing the modal')
@@ -124,5 +152,8 @@
 
         //resume the video
         videoDiv.firstChild.play()
+
+        //hide the close button
+        closeButton.style.visibility = 'hidden'
     }
 </script>
