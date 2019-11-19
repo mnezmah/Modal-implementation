@@ -19,7 +19,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
   }
 }
 
-#modal-email {
+.modal-subsc {
   .modal__container {
     background-color: $color-off-white;
     height: auto;
@@ -33,32 +33,35 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
       }
 
       input {
-        padding: 1%;
-        margin-bottom: $global-spacing-sm;
+        // padding: 1%;
+        // margin-bottom: $global-spacing-sm;
       }
 
-      #email {
+      .input__email {
         width: 100%;
-        border: solid 1px $color-black;
+        // border: solid 1px $color-black;
 
         :active {
-          border: socil 1px $color-social-pinterest;
+          border: solid 0.5px $color-social-pinterest;
         }
       }
 
-      #first {
-        border: solid 1px $color-social-whatsapp;
-        margin-right: $global-spacing-sm;
+      .input__first {
+        border: solid 0.5px $color-social-whatsapp;
+        // margin-right: $global-spacing-sm;
       }
-      #last {
+
+      .input__last {
         clear: right;
-        border: solid 1px $color-social-whatsapp;
+        border: solid 0.5px $color-social-whatsapp;
       }
+
       .modal__button-back {
         clear: left;
         .button__icon {
           right: $button-spacing * 9;
         }
+
         .button__label {
           margin-left: $global-spacing-sm;
         }
@@ -121,9 +124,6 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
 }
 
 .modal__button-round {
-  // position: absolute;
-  // top: -25%;
-  // left: 37vw;
   z-index: 9999;
   display: inline-block;
   line-height: 1rem;

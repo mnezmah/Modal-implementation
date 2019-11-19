@@ -1,4 +1,3 @@
-import { Form } from '@components/form-elements'
 {% from 'video.html' import video  %}
 {% from 'button.html' import button %}
 {% from 'modal.html' import modal %}
@@ -74,47 +73,49 @@ import { Form } from '@components/form-elements'
 
     <div class="o-container">
         {% call modal({
-            id:'modal-email'
-        }) %}
+            id:'modal-subsc'
+        }, js-hook-modal) %}
         <!-- {{ button( {
             class: 'modal__button-close modal__button-round',
             label: 'x',
             variant: 'secondary'
         } ) }} -->
         <h3>Niks willen missen van onze nieuwtjes en acties?</h3>
-        <form action="submit">
-            <input 
-            type="email"
-            name="email" 
-            id="email" 
-            placeholder="Emailaddress" 
-            onclick=showHiddenForm()
-            onkeypress=showHiddenForm()
-            >
-            <input 
-            type="text" 
-            class="hidden" 
-            name="first" 
-            id="first" 
-            placeholder="First name"
-            >
-            <input 
-            type="text" 
-            class="hidden" 
-            name="last" 
-            id="last" 
-            placeholder="Last name"
-            >
-            <br>
+        {%call form.form() %}
 
-            {{ button( {
+        {{ form.input({
+                type: 'email',
+                class: 'input__email',
+                name:'input-email',
+                id: 'email',
+                placeholder: 'Emailaddress'
+            })}}
+
+        {{ form.input({
+                name:'input-first',
+                class: 'input__first hidden',
+                id: 'first',
+                placeholder: 'First name'
+            })}}
+
+        {{ form.input({
+                name:'input-last',
+                class: 'input__last hidden',
+                id: 'last',
+                placeholder: 'Last name'
+            })}}
+
+        {% endcall %}
+        <!-- /form -->
+
+        {{ button( {
                 class: 'modal__button-back hidden',
                 icon: 'chevron-left',
                 label: 'back',
                 variant: 'ghost'
             } ) }}
 
-            {{ button( {
+        {{ button( {
                 class: 'modal__button-submit hidden',
                 label: 'submit',
                 variant: 'primary',
@@ -137,22 +138,26 @@ import { Form } from '@components/form-elements'
       label: 'Subscribe to newsletter',
       url: '#',
       variant: 'secondary',
-      icon: 'chevron-right'
+      icon: 'chevron-right',
+      hook: 'modal__button-close',
+      controls: 'modal-subsc'
     } ) }}
     </div>
 </div>
 
 <script>
-    const modal = document.querySelector('#modal-email')
+    const modal = document.querySelector('#modal-subsc')
     const openButton = document.querySelector('.hero__cta')
     const videoDiv = document.querySelector('.video__player')
     const closeButton = document.querySelector('.modal__button-close')
+    const emailInput = document.querySelector('#email')
 
     //open modal with button 'open modal'
     openButton.addEventListener('click', openModal)
-   function openModal() {
+    function openModal() {
         console.log('I am clicked')
         modal.classList.toggle('modal--is-showing')
+        modal.classList.add('modal-subsc')
 
         //pause the video
         videoDiv.firstChild.pause()
@@ -162,10 +167,14 @@ import { Form } from '@components/form-elements'
 
         //style the close button
         closeButton.classList.add('modal__button-round')
+
+        //hide the subscribe button
+        openButton.classList.add('hidden')
     }
 
     //close modal with x button
     closeButton.addEventListener('click', closeModal)
+    closeButton.addEventListener('keyPress', closeModal)
     function closeModal() {
         console.log('Closing the modal')
         modal.classList.toggle('modal--is-showing')
@@ -173,14 +182,15 @@ import { Form } from '@components/form-elements'
         //resume the video
         videoDiv.firstChild.play()
 
-        //hide the close button
-        closeButton.style.visibility = 'hidden'
+        //show the subscribe button
+        openButton.classList.remove('hidden')
     }
 
-    function showHiddenForm(){
-        console.log('emal changed!')
-        document.querySelector('#first').classList.remove('hidden')
-        document.querySelector('#last').classList.remove('hidden')
+    emailInput.addEventListener('click', showHiddenForm)
+    function showHiddenForm() {
+        console.log('email clicked!')
+        document.querySelector('.input__first').classList.remove('hidden')
+        document.querySelector('.input__last').classList.remove('hidden')
         document.querySelector('.modal__button-back').classList.remove('hidden')
         document.querySelector('.modal__button-submit').classList.remove('hidden')
     }
