@@ -76,14 +76,13 @@
 
     <div class="o-container">
         {% call modal({
-                    id:'modal-email',
-                    noClose: 'true'
-                }) %}
-        {{ button( {
-                      class: 'modal__button-close modal__button-round',
-                      label: 'x',
-                      variant: 'secondary'
-                    } ) }}
+            id:'modal-email'
+        }) %}
+        <!-- {{ button( {
+            class: 'modal__button-close modal__button-round',
+            label: 'x',
+            variant: 'secondary'
+        } ) }} -->
         <h3>Niks willen missen van onze nieuwtjes en acties?</h3>
         <form action="submit">
             <input type="text" name="email" id="email" placeholder="Emailaddress">
@@ -91,20 +90,23 @@
             <input type="text" name="last" id="last" placeholder="Last name">
             <br>
             {{ button( {
-                class: 'modal__button-back',
+                class: 'modal__button-back',icon: 'chevron-left'
                 label: 'back',
-                variant: 'ghost'
+                variant: 'ghost',
+                
             } ) }}
 
             {{ button( {
                 class: 'modal__button-submit',
                 label: 'submit',
-                variant: 'primary'
+                variant: 'primary',
+                icon: 'chevron-right'
             } ) }}
 
         </form>
 
         {% endcall %}
+
         <div class="hero__content">
 
             <h1 class="hero__title u-margin-bottom--sm">We are going to create: <br />A modal with a newsletter form!!

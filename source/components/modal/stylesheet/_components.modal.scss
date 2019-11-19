@@ -28,9 +28,19 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
     .modal__content {
       background-color: $color-off-white;
 
+      h3 {
+        margin-bottom: $global-spacing-sm;
+      }
+
+      input {
+        padding: 1%;
+        margin-bottom: $global-spacing-sm;
+      }
+
       #email {
         width: 100%;
         border: solid 1px $color-black;
+
         :active {
           border: socil 1px $color-social-pinterest;
         }
@@ -38,8 +48,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
 
       #first {
         border: solid 1px $color-social-whatsapp;
-
-        margin-right: 2%;
+        margin-right: $global-spacing-sm;
       }
       #last {
         clear: right;
@@ -47,6 +56,13 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
       }
       .modal__button-back {
         clear: left;
+        .button__icon {
+          // left: $button-spacing * 1.75;
+          right: $button-spacing * 9;
+        }
+        .button__label {
+          margin-left: $global-spacing-sm;
+        }
       }
 
       .modal__button-submit {
@@ -54,6 +70,10 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
       }
     }
   }
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .c-modal {
@@ -102,15 +122,15 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
 }
 
 .modal__button-round {
-  position: absolute;
-  top: -25%;
-  left: 37vw;
+  // position: absolute;
+  // top: -25%;
+  // left: 37vw;
   z-index: 9999;
   display: inline-block;
   line-height: 1rem;
   width: 3rem;
-  // margin-top: -5%;
-  // margin-right: -4.5%;
+  margin-top: -5%;
+  margin-right: -4%;
   padding: 2%;
   background-color: $color-black;
   border-radius: 50%;
