@@ -2,6 +2,7 @@
 {% from 'button.html' import button %}
 {% from 'modal.html' import modal %}
 {% import 'form-elements.html' as form %}
+{% from 'toast.html' import toast %}
 
 
 <div class="c-hero">
@@ -128,12 +129,11 @@
 
         {% endcall %}
 
-        <!-- <div class="hero__content">
-
-            <h1 class="hero__title u-margin-bottom--sm">We are going to create: <br />A modal with a newsletter form!!
-            </h1>
-            <p class="hero__subtitle">Let's get started!</p>
-        </div> -->
+        {{toast( {
+            class: 'toast__bedankt',
+            variant: 'warning',
+            label: 'Hello from winterland'
+        })}}
 
         {{ button( {
       class: 'hero__cta',
