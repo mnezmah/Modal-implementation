@@ -1,0 +1,46 @@
+@import "variant/mixin.success";
+@import "variant/mixin.warning";
+@import "variant/mixin.error";
+
+$toast-basic-spacing: $global-spacing-sm;
+
+//colors
+$toast-basic-font-color: $color-white;
+$toast-basic-icon-color: $toast-basic-font-color;
+$toast-basic-background-color: $color-off-white;
+
+@mixin toast--base {
+  display: inline-block;
+  user-select: none;
+  text-decoration: none;
+  padding: $toast-basic-spacing;
+  margin: 0;
+  width: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.c-toast {
+  background-color: $toast-basic-background-color;
+  @include toast--base;
+}
+
+.toast__label,
+.toast__icon {
+  color: $toast-basic-font-color;
+}
+
+/**
+* Toast variant
+*/
+.c-toast--success {
+  @include toast--success;
+}
+
+.c-toast--warning {
+  @include toast--warning;
+}
+
+.c-toast--error {
+  @include toast--error;
+}

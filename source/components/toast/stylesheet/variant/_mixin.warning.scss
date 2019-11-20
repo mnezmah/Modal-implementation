@@ -1,0 +1,8 @@
+@mixin toast--warning {
+  @include toast--base;
+  background-color: $color-yellow;
+
+  .toast__label {
+    color: $color-black;
+  }
+}

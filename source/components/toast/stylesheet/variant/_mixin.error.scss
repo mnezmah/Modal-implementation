@@ -1,0 +1,4 @@
+@mixin toast--error {
+  @include toast--base;
+  background-color: $color-social-pinterest;
+}
