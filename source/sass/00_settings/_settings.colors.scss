@@ -16,6 +16,7 @@ $color-grey-light: #808080;
 $color-white: #ffffff;
 $color-off-white: #ececec;
 
+$color-yellow: #f9d953;
 // Core color settings
 
 $color-background-html: $color-white;
@@ -45,8 +46,8 @@ $color-social-whatsapp: #4dc247;
 
 // List of social channels with their colors you can use to loop through
 $color-socials-map: (
-  'twitter': $color-social-twitter,
-  'facebook': $color-social-facebook,
-  'linkedin': $color-social-linkedin,
-  'youtube': $color-social-youtube,
+  "twitter": $color-social-twitter,
+  "facebook": $color-social-facebook,
+  "linkedin": $color-social-linkedin,
+  "youtube": $color-social-youtube
 );

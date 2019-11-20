@@ -1,3 +1,7 @@
+@import "variant/mixin.success";
+@import "variant/mixin.warning";
+@import "variant/mixin.error";
+
 $toast-basic-spacing: $global-spacing;
 
 //colors
@@ -23,4 +27,19 @@ $toast-basic-background-color: $color-off-white;
 .toast__label,
 .toast__icon {
   color: $toast-basic-font-color;
+}
+
+/**
+* Toast variant
+*/
+.c-toast--success {
+  @include toast--success;
+}
+
+.c-toast--warning {
+  @include toast--warning;
+}
+
+.c-toast--error {
+  @include toast--error;
 }
