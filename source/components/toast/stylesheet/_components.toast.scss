@@ -1,0 +1,26 @@
+$toast-basic-spacing: $global-spacing;
+
+//colors
+$toast-basic-font-color: $color-white;
+$toast-basic-icon-color: $toast-basic-font-color;
+$toast-basic-background-color: $color-off-white;
+
+@mixin toast--base {
+  display: inline-block;
+  user-select: none;
+  text-decoration: none;
+  padding: $toast-basic-spacing;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.c-toast {
+  background-color: $toast-basic-background-color;
+  @include toast--base;
+}
+
+.toast__label,
+.toast__icon {
+  color: $toast-basic-font-color;
+}
