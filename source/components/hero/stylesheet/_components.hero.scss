@@ -36,3 +36,13 @@
     color: $color-white;
   }
 }
+// .o-container {
+//   text-align: center
+// }
+
+.toast__bedankt {
+  position: absolute;
+  bottom: $global-spacing-lg;
+  left: 37%;
+  z-index: 99;
+}

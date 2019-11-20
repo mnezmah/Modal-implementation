@@ -2,7 +2,7 @@
 @import "variant/mixin.warning";
 @import "variant/mixin.error";
 
-$toast-basic-spacing: $global-spacing;
+$toast-basic-spacing: $global-spacing-sm;
 
 //colors
 $toast-basic-font-color: $color-white;
@@ -15,6 +15,7 @@ $toast-basic-background-color: $color-off-white;
   text-decoration: none;
   padding: $toast-basic-spacing;
   margin: 0;
+  width: auto;
   text-align: center;
   vertical-align: middle;
 }
