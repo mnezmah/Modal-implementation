@@ -130,7 +130,7 @@
         {% endcall %}
 
         {{toast( {
-            class: 'toast__bedankt',
+            class: 'toast__bedankt hidden',
             variant: 'success',
             label: 'Bedankt voor uw aanmelding!'
         })}}
@@ -232,6 +232,13 @@
             emailInput.focus()
             return false
         }
+        //hide the modal
+        modal.classList.toggle('hidden')
+        //show success toast
+        document.querySelector('.toast__bedankt').classList.remove('hidden')
+        //resume the video
+        videoDiv.firstChild.play()
         return true
     }
+
 </script>
