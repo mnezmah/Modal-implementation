@@ -46,7 +46,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
       }
 
       .input__first {
-        border: solid 0.5px $color-social-whatsapp;
+        // border: solid 0.5px $color-social-whatsapp;
         width: 45%;
         margin-right: $global-spacing-lg;
       }
@@ -54,7 +54,7 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
       .input__last {
         clear: right;
         width: 45%;
-        border: solid 0.5px $color-social-whatsapp;
+        // border: solid 0.5px $color-social-whatsapp;
       }
 
       .modal__button-back {

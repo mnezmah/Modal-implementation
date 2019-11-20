@@ -1,0 +1,31 @@
+{#
+
+  Toast
+
+Usage:
+<!-- Include the file containing the macro -->
+{% include 'toast.html' %}
+
+Options: 
+class {string}         (optional) - Adds custom  classes
+variant {string}       (optional) - Adds variant to the toast (success | warning | error )
+label {string}                    - Adds text to the toast
+attr {string}          (optional) - Adds attributes to the toast
+hook {string}          (optional) - Adds a hook to the toast
+
+#}
+
+{% macro toast( data ) %}
+
+
+<div
+  class="{%- if data.variant %}c-toast--{{ data.variant }}{% else %}c-toast{% endif -%}{%- if data.class %} {{ data.class }} {% endif -%}"
+  {%- if data.attr %} {{ data.attr|safe }} {% endif -%} {%- if data.size %} toast--{{ data.size }} {% endif -%}
+  {%- if data.variant %}c-toast--{{ data.variant }}{% else %}c-toast{% endif -%}>
+  <h3 class="toast__label">{{data.label}}</h3>
+  {%- if data.icon %}
+  <span class="toast__icon">{% svg 'icons/' + data.icon %}</span>
+  {% endif -%}
+</div>
+
+{% endmacro %}
