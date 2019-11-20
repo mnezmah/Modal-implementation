@@ -29,11 +29,13 @@ const firstNameInput = document.querySelector('.input__first')
 const lastNameInput = document.querySelector('.input__last')
 const firstInput = document.querySelector('#first')
 const lastInput = document.querySelector('#last')
+const message = document.querySelector('.message')
+const submitButton = document.querySelector('.modal__button-submit')
+const backtButton = document.querySelector('.modal__button-back')
 
 //open modal with button 'open modal'
 openButton.addEventListener('click', openModal)
 function openModal() {
-  console.log('I am clicked')
   modal.classList.toggle('modal--is-showing')
   modal.classList.add('modal-subsc')
 
@@ -54,7 +56,6 @@ function openModal() {
 closeButton.addEventListener('click', closeModal)
 closeButton.addEventListener('keypress', closeModal)
 function closeModal() {
-  console.log('Closing the modal')
   modal.classList.toggle('modal--is-showing')
 
   //resume the video
@@ -64,9 +65,9 @@ function closeModal() {
   openButton.classList.remove('hidden')
 }
 
+//expand the form on email input
 emailInput.addEventListener('click', showHiddenForm)
 function showHiddenForm() {
-  console.log('email clicked!')
   firstNameInput.classList.remove('hidden')
   lastNameInput.classList.remove('hidden')
   document.querySelector('.modal__button-back').classList.remove('hidden')
@@ -74,8 +75,6 @@ function showHiddenForm() {
 }
 
 //Form validation
-const submitButton = document.querySelector('.modal__button-submit')
-
 submitButton.addEventListener('click', validate)
 function validate() {
   if (emailInput.value == '') {
@@ -94,20 +93,47 @@ function validate() {
     return false
   }
   validateEmail()
-  // API call
-  callApi()
   return true
 }
 
+//API call
 function callApi() {
-  API.post('https://jsonplaceholder.typicode.com/usersd', {
+  API.post('https://jsonplaceholder.typicode.com/users', {
     data: {
       name: `${firstInput.value} ${lastInput.value}`,
       email: `${emailInput.value}`,
     },
   })
-    .then(response => console.log('response :', response))
+    .then(response => (response.status == 201 ? wentWell() : wentWrong()))
     .catch(response => console.log('error:', response))
+}
+
+function wentWell() {
+  console.log('went well triggered')
+  //hide the modal
+  modal.classList.add('hidden')
+  // show success toast
+  document.querySelector('.toast__bedankt').classList.remove('hidden')
+  //resume the video
+  videoDiv.firstChild.play()
+}
+
+function wentWrong() {
+  console.log('went Wrong triggered')
+  message.innerHTML = 'Ups, something went wrong'
+  emailInput.classList.add('hidden')
+  firstInput.classList.add('hidden')
+  lastInput.classList.add('hidden')
+  submitButton.classList.add('hidden')
+  backtButton.addEventListener('click', showForm)
+}
+
+function showForm() {
+  emailInput.classList.remove('hidden')
+  firstInput.classList.remove('hidden')
+  lastInput.classList.remove('hidden')
+  submitButton.classList.remove('hidden')
+  message.innerHTML = 'Niks willen missen van onze nieuwtjes en acties?'
 }
 
 function validateEmail() {
@@ -119,12 +145,5 @@ function validateEmail() {
     emailInput.focus()
     return false
   }
-
-  //hide the modal
-  modal.classList.toggle('hidden')
-  //show success toast
-  document.querySelector('.toast__bedankt').classList.remove('hidden')
-  //resume the video
-  videoDiv.firstChild.play()
-  return true
+  callApi()
 }
