@@ -136,7 +136,6 @@ $modal-min-width-media-query: ($modal-max-width + $modal-gutter-small * 2) - 0.5
   background-color: $color-black;
   border-radius: 50%;
   color: $color-off-white;
-  visibility: hidden;
 }
 
 .modal__container {

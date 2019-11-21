@@ -42,9 +42,6 @@ function openModal() {
   //pause the video
   videoDiv.firstChild.pause()
 
-  //show the close button
-  closeButton.style.visibility = 'visible'
-
   //style the close button
   closeButton.classList.add('modal__button-round')
 
@@ -74,6 +71,11 @@ function showHiddenForm() {
   document.querySelector('.modal__button-submit').classList.remove('hidden')
 }
 
+//color form calidation
+emailInput.addEventListener('change', showRedShadow)
+function showRedShadow() {
+  emailInput.classList.add('redShadowBox')
+}
 //Form validation
 submitButton.addEventListener('click', validate)
 function validate() {
@@ -104,11 +106,12 @@ function callApi() {
       email: `${emailInput.value}`,
     },
   })
-    .then(response => (response.status == 201 ? wentWell() : wentWrong()))
+    .then(response => (response.status == 201 ? wentWell(response) : wentWrong()))
     .catch(response => console.log('error:', response))
 }
 
-function wentWell() {
+function wentWell(response) {
+  console.log(response)
   console.log('went well triggered')
   //hide the modal
   modal.classList.add('hidden')
@@ -120,7 +123,7 @@ function wentWell() {
 
 function wentWrong() {
   console.log('went Wrong triggered')
-  message.innerHTML = 'Ups, something went wrong'
+  message.innerHTML = 'Oeps er is iets fout gegaan'
   emailInput.classList.add('hidden')
   firstInput.classList.add('hidden')
   lastInput.classList.add('hidden')
@@ -136,11 +139,14 @@ function showForm() {
   message.innerHTML = 'Niks willen missen van onze nieuwtjes en acties?'
 }
 
+//Email validation
 function validateEmail() {
   const emailValue = emailInput.value
   const atPosition = emailValue.indexOf('@')
   const dotPosition = emailValue.lastIndexOf('.')
-  if (atPosition < 1 || dotPosition - atPosition < 2 || dotPosition == emailValue.length - 1) {
+  const notValidEmail =
+    atPosition < 1 || dotPosition - atPosition < 2 || dotPosition == emailValue.length - 1
+  if (notValidEmail) {
     alert('Please enter a valid e-mail address')
     emailInput.focus()
     return false
