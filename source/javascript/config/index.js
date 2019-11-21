@@ -25,6 +25,7 @@ const openButton = document.querySelector('.hero__cta')
 const videoDiv = document.querySelector('.video__player')
 const closeButton = document.querySelector('.modal__button-close')
 const emailInput = document.querySelector('#email')
+console.log('email-input:', emailInput)
 const firstNameInput = document.querySelector('.input__first')
 const lastNameInput = document.querySelector('.input__last')
 const firstInput = document.querySelector('#first')
@@ -34,7 +35,7 @@ const submitButton = document.querySelector('.modal__button-submit')
 const backtButton = document.querySelector('.modal__button-back')
 
 //open modal with button 'open modal'
-openButton.addEventListener('click', openModal)
+openButton.onclick = openModal
 function openModal() {
   modal.classList.toggle('modal--is-showing')
   modal.classList.add('modal-subsc')
@@ -50,8 +51,7 @@ function openModal() {
 }
 
 //close modal with x button
-closeButton.addEventListener('click', closeModal)
-closeButton.addEventListener('keypress', closeModal)
+closeButton.onclick = closeModal
 function closeModal() {
   modal.classList.toggle('modal--is-showing')
 
@@ -63,7 +63,7 @@ function closeModal() {
 }
 
 //expand the form on email input
-emailInput.addEventListener('click', showHiddenForm)
+emailInput.onclick = showHiddenForm
 function showHiddenForm() {
   firstNameInput.classList.remove('hidden')
   lastNameInput.classList.remove('hidden')
@@ -71,13 +71,14 @@ function showHiddenForm() {
   document.querySelector('.modal__button-submit').classList.remove('hidden')
 }
 
-//color form calidation
-emailInput.addEventListener('change', showRedShadow)
+//color form validation
+emailInput.onchange = showRedShadow
 function showRedShadow() {
+  console.log('showredshadow!')
   emailInput.classList.add('redShadowBox')
 }
 //Form validation
-submitButton.addEventListener('click', validate)
+submitButton.onclick = validate
 function validate() {
   if (emailInput.value == '') {
     alert('Please provide your Email!')
@@ -128,7 +129,7 @@ function wentWrong() {
   firstInput.classList.add('hidden')
   lastInput.classList.add('hidden')
   submitButton.classList.add('hidden')
-  backtButton.addEventListener('click', showForm)
+  backtButton.onclick = showForm
 }
 
 function showForm() {
