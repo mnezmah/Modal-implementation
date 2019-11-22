@@ -1,42 +1,88 @@
 @charset 'UTF-8';
 
-$assets-path: '../' !default;
+$assets-path: "../" !default;
 
 /*------------------------------------*\
   #MAIN
 \*------------------------------------*/
 
-@import '01_tools/tools.conversion';
+@import "01_tools/tools.conversion";
 
-@import '00_settings/all';
-@import '01_tools/all';
+@import "00_settings/all";
+@import "01_tools/all";
 
 //  Vendor libs
 //      - styles from other sources (npm)
 //[INSERT VENDOR LIBS]
 
-@import '10_generic/generic.font-face';
-@import '10_generic/generic.normalize';
-@import '10_generic/generic.html';
+@import "10_generic/generic.font-face";
+@import "10_generic/generic.normalize";
+@import "10_generic/generic.html";
 
-@import '20_elements/all';
+@import "20_elements/all";
 
-@import '30_objects/objects.grid';
-@import '30_objects/objects.background-image';
+@import "30_objects/objects.grid";
+@import "30_objects/objects.background-image";
 
 /* components:scss */
-@import '../../source/components/button/stylesheet/_components.button';
-@import '../../source/components/cookies/stylesheet/_components.cookies';
-@import '../../source/components/footer/stylesheet/_components.footer';
-@import '../../source/components/form-elements/stylesheet/_components.form-elements';
-@import '../../source/components/header/stylesheet/_components.header';
-@import '../../source/components/hero/stylesheet/_components.hero';
-@import '../../source/components/image/stylesheet/_components.image';
-@import '../../source/components/modal/stylesheet/_components.modal';
-@import '../../source/components/toast/stylesheet/_components.toast';
-@import '../../source/components/video/stylesheet/_components.video';
+@import "../../source/components/button/stylesheet/_components.button";
+@import "../../source/components/cookies/stylesheet/_components.cookies";
+@import "../../source/components/footer/stylesheet/_components.footer";
+@import "../../source/components/form-elements/stylesheet/_components.form-elements";
+@import "../../source/components/header/stylesheet/_components.header";
+@import "../../source/components/hero/stylesheet/_components.hero";
+@import "../../source/components/image/stylesheet/_components.image";
+@import "../../source/components/modal/stylesheet/_components.modal";
+@import "../../source/components/toast/stylesheet/_components.toast";
+@import "../../source/components/video/stylesheet/_components.video";
 /* endinject */
 
-@import '50_scopes/scopes.rich-text';
+@import "50_scopes/scopes.rich-text";
 
-@import '70_utilities/all';
+@import "70_utilities/all";
+
+.c-header {
+  @media #{$screen-mobile-and-smaller} {
+    position: absolute;
+    border-top: 0;
+    height: 10vh;
+    width: 100vw;
+  }
+}
+
+.video__player {
+  @media #{$screen-mobile-and-smaller} {
+    top: 10vh;
+  }
+}
+
+.o-container {
+  @media #{$screen-mobile-and-smaller} {
+    // margin-top: 16vh;
+  }
+}
+
+.c-footer {
+  @media #{$screen-mobile-and-smaller} {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    height: 27vh;
+    width: 100vw;
+    margin: 0;
+  }
+
+  .footer__left {
+    @media #{$screen-mobile-and-smaller} {
+      width: 50vw;
+    }
+  }
+
+  .footer__right {
+    @media #{$screen-mobile-and-smaller} {
+      background-color: $color-black;
+      float: right;
+    }
+  }
+}

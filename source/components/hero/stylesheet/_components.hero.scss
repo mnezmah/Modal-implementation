@@ -22,6 +22,11 @@
 .hero__cta {
   margin-bottom: $global-spacing-sm;
 
+  @media #{$screen-mobile-and-smaller} {
+    display: block;
+    margin: 0 auto;
+  }
+
   @include screen-mobile-plus-and-bigger {
     position: absolute;
     right: $global-spacing-lg;
