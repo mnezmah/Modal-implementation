@@ -83,20 +83,20 @@
         {{ form.input({
                 type: 'email',
                 class: 'input__email',
-                name:'input-email',
                 id: 'email',
                 placeholder: 'Emailaddress'
-            })}}
+            }) 
+        }}
 
         <div class="name-input-container">
             {{ form.input({
                     type: 'text',
-                    name:'input-first',
                     class: 'input__first hidden',
                     id: 'first',
                     required: true,
-                    error: 'Please provide First name'
-                })}}
+                    placeholder: 'First name'
+                })
+            }}
 
             {{ form.input({
                     type: 'text',
@@ -104,7 +104,8 @@
                     class: 'input__last hidden',
                     id: 'last',
                     placeholder: 'Last name'
-                })}}
+                })
+            }}
         </div>
 
         {% endcall %}
@@ -115,7 +116,8 @@
                 icon: 'chevron-left',
                 label: 'back',
                 variant: 'ghost'
-            } ) }}
+            })
+        }}
 
         {{ button( {
                 class: 'modal__button-submit hidden',
@@ -123,26 +125,27 @@
                 variant: 'primary',
                 icon: 'chevron-right',
                 url: '#'
-            } ) }}
-
-        </form>
+            })
+        }}
 
         {% endcall %}
 
-        {{toast( {
-            class: 'toast__bedankt hidden',
-            variant: 'success',
-            label: 'Bedankt voor uw aanmelding!'
-        })}}
+        {{ toast( {
+                class: 'toast__bedankt hidden',
+                variant: 'success',
+                label: 'Bedankt voor uw aanmelding!'
+            })
+        }}
 
         {{ button( {
-      class: 'hero__cta',
-      label: 'Subscribe to newsletter',
-      url: '#',
-      variant: 'secondary',
-      icon: 'chevron-right',
-      hook: 'modal__button-close',
-      controls: 'modal-subsc'
-    } ) }}
+                class: 'hero__cta',
+                label: 'Subscribe to newsletter',
+                url: '#',
+                variant: 'secondary',
+                icon: 'chevron-right',
+                hook: 'modal__button-close',
+                controls: 'modal-subsc'
+            }) 
+        }}
     </div>
 </div>
