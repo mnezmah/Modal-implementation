@@ -32,7 +32,8 @@
   @media #{$screen-mobile-and-smaller} {
     display: block;
     margin: 0 auto;
-    bottom: -12vh;
+    bottom: -2vh;
+    z-index: 99;
   }
 
   @include screen-mobile-plus-and-bigger {

@@ -141,58 +141,23 @@ $assets-path: "../" !default;
   }
 }
 
-.c-footer {
-  @media #{$screen-mobile-and-smaller} {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    bottom: 0;
-    height: 27vh;
-    width: 100vw;
-    margin: 0;
-  }
-
-  .footer__left {
-    @media #{$screen-mobile-and-smaller} {
-      width: 50vw;
-    }
-    // .footer__menu {
-    //   margin-bottom: -5%;
-    // }
-  }
-
-  .footer__right {
-    @media #{$screen-mobile-and-smaller} {
-      background-color: $color-black;
-      float: right;
-    }
-  }
-}
-
 .toast__bedankt {
-  // position: absolute;
-  // bottom: $global-spacing-lg;
-  // left: 37%;
   z-index: 99;
   position: relative;
   display: inline-block;
   margin-left: -133px;
-  // top: 62%;
   left: 50%;
-  // right: auto;
   bottom: 10vh;
-
-  @media #{$screen-mobile-and-smaller} {
-    //   //   position: relative;
-    //   //   display: inline-block;
-    //   //   margin-left: -133px;
-    //   //   // top: 62%;
-    //   //   left: 50%;
-    //   //   // right: auto;
-    //   bottom: 10vh;
-  }
 
   @media #{$screen-mobile-plus-only} {
     bottom: 25vh;
+  }
+}
+
+.o-col-3--md {
+  @media #{$screen-tablet-portrait-only} {
+    flex-basis: 26%;
+    max-width: 26%;
+    // margin-left: -2%;
   }
 }

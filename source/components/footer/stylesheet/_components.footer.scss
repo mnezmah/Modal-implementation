@@ -6,10 +6,20 @@
   @include screen-mobile-plus-and-bigger {
     padding: 100px 0;
   }
+  @media #{$screen-tablet-landscape-and-smaller} {
+    position: absolute;
+    bottom: 0;
+    height: 58vh;
+    width: 100vw;
+  }
 }
 
 .footer__logo {
   display: none;
+
+  @include screen-tablet-portrait-only {
+    padding-left: 5%;
+  }
 
   @include screen-tablet-portrait-and-bigger {
     display: block;
@@ -24,7 +34,17 @@
 .footer__left {
   display: flex;
 
-  @include screen-tablet-portrait-and-bigger {
+  @include screen-tablet-portrait-only {
+    width: 50vw;
+    flex-direction: column;
+  }
+
+  @include screen-tablet-landscape-only {
+    width: 50vw;
+    flex-direction: column;
+  }
+
+  @include screen-tablet-landscape-and-bigger {
     align-items: flex-end;
   }
 }
@@ -32,7 +52,7 @@
 .footer__right {
   display: flex;
 
-  @include screen-tablet-portrait-and-bigger {
+  @include screen-tablet-landscape-and-bigger {
     align-items: flex-end;
     height: 100%;
   }
@@ -43,7 +63,12 @@
   flex-direction: column;
   list-style: none;
 
-  @include screen-tablet-portrait-and-bigger {
+  .footer__cases {
+    @include screen-tablet-portrait-only {
+      padding-left: 5%;
+    }
+  }
+  @include screen-tablet-landscape-and-bigger {
     flex-direction: row;
     flex-wrap: wrap;
     margin-left: $global-spacing-lg;
@@ -80,6 +105,10 @@
   @include screen-mobile-plus-and-bigger {
     margin-top: 0;
     margin-left: auto;
+  }
+
+  @include screen-tablet-portrait-only {
+    margin-right: 39%;
   }
 }
 
