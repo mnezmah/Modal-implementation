@@ -19,8 +19,22 @@
   }
 }
 
+.o-container {
+  height: 0vh;
+  @media #{$screen-mobile-and-smaller} {
+    height: 20vh;
+  }
+}
+
 .hero__cta {
   margin-bottom: $global-spacing-sm;
+
+  @media #{$screen-mobile-and-smaller} {
+    display: block;
+    margin: 0 auto;
+    bottom: -2vh;
+    z-index: 99;
+  }
 
   @include screen-mobile-plus-and-bigger {
     position: absolute;
@@ -35,13 +49,6 @@
   @include screen-mobile-plus-and-bigger {
     color: $color-white;
   }
-}
-
-.toast__bedankt {
-  position: absolute;
-  bottom: $global-spacing-lg;
-  left: 37%;
-  z-index: 99;
 }
 
 .hidden {
